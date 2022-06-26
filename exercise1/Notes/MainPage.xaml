@@ -3,7 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Notes.MainPage">
 
-    <VerticalStackLayout Margin="30,60,30,30">
+    <VerticalStackLayout  x:Name="MyStackLayout">
+        
+        <VerticalStackLayout.Padding>
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="30,60,30,30" />
+                <On Platform="Android" Value="30" />
+                <On Platform="WinUI" Value="30" />
+            </OnPlatform>
+        </VerticalStackLayout.Padding>
+        
+        <VerticalStackLayout.BackgroundColor>
+            <OnPlatform x:TypeArguments="Color">
+                <On Platform="iOS" Value="Silver" />
+                <On Platform="Android" Value="Green" />
+                <On Platform="WinUI" Value="Yellow" />
+            </OnPlatform>
+        </VerticalStackLayout.BackgroundColor>
+        
         <Label Text="Notes"
                HorizontalOptions="Center"
                FontAttributes="Bold" />
